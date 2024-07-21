@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Pemesanan</title>
+  </head>
+  <body>
+    <h1 style="text-align: center">Form Pemesanan</h1>
+      <table>
+        <tr>
+          <td><label for="nama">Nama</label></td>
+          <td><input type="text" name="name" id="nama" /></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="acara">Acara</label>
+          </td>
+          <td>
+            <input type="radio" id="akad" name="acara" value="Akad" />
+            <label for="akad">Akad</label><br />
+            <input type="radio" id="resepsi" name="acara" value="Resepsi" />
+            <label for="resepsi">Resepsi</label><br />
+            <input type="radio" id="akad-dan-resepsi" name="acara" value="Akad dan Resepsi"/>
+            <label for="akad-dan-resepsi">Akad dan Resepsi</label><br />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="tanggal">Tanggal</label></td>
+          <td><input type="date" name="tanggal" id="tanggal" /></td>
+        </tr>
+        <tr>
+          <td><label for="tempat">Tempat</label></td>
+          <td><input type="teks" name="tempat" id="tempat" /></td>
+        </tr>
+        <tr>
+          <td colspan="2"><button onclick="kirim()">kirim</button></td>
+        </tr>
+      </table>
+    <script>
+      function kirim() {
+        const nama = document.getElementById("nama").value;
+        console.log(nama)
+        const acara = document.querySelector('input[name="acara"]:checked').value;
+        console.log(acara)        
+        const tanggal = document.getElementById("tanggal").value;
+        console.log(tanggal)
+        const tempat = document.getElementById("tempat").value;
+        console.log(tempat)
+    
+        window.open(`https://wa.me/6285246362203?text=Hallo%20Kak%20Perkenalkan%20saya%20${nama}%0aAcara%20:%20${acara}%0aTanggal%20:%20${tanggal}%0aTempat%20:%20${tempat}`, "_blank");
+        
+      }
+    </script>
+  </body>
+</html>
