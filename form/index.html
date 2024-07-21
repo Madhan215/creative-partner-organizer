@@ -4,52 +4,88 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Pemesanan</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
   </head>
   <body>
-    <h1 style="text-align: center">Form Pemesanan</h1>
-      <table>
-        <tr>
-          <td><label for="nama">Nama</label></td>
-          <td><input type="text" name="name" id="nama" /></td>
-        </tr>
-        <tr>
-          <td>
-            <label for="acara">Acara</label>
-          </td>
-          <td>
-            <input type="radio" id="akad" name="acara" value="Akad" />
-            <label for="akad">Akad</label><br />
-            <input type="radio" id="resepsi" name="acara" value="Resepsi" />
-            <label for="resepsi">Resepsi</label><br />
-            <input type="radio" id="akad-dan-resepsi" name="acara" value="Akad dan Resepsi"/>
-            <label for="akad-dan-resepsi">Akad dan Resepsi</label><br />
-          </td>
-        </tr>
-        <tr>
-          <td><label for="tanggal">Tanggal</label></td>
-          <td><input type="date" name="tanggal" id="tanggal" /></td>
-        </tr>
-        <tr>
-          <td><label for="tempat">Tempat</label></td>
-          <td><input type="teks" name="tempat" id="tempat" /></td>
-        </tr>
-        <tr>
-          <td colspan="2"><button onclick="kirim()">kirim</button></td>
-        </tr>
-      </table>
+    <div class="container mt-5">
+      <div class="d-flex justify-content-center">
+        <div class="card" style="width: 18rem">
+          <div class="card-header text-center">
+            <b>Form Pemesanan</b>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="nama">Nama</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nama"
+                name="nama"
+                placeholder="Masukkan nama anda"
+              />
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="acara">Acara</label>
+              <select class="form-select" id="acara">
+                <option selected>Pilih Acara</option>
+                <optgroup label="Wedding">
+                  <option value="Akad">Akad</option>
+                  <option value="Resepsi">Resepsi</option>
+                  <option value="Akad dan Resepsi">Akad & Resepsi</option>
+                </optgroup>
+                <optgroup label="Event">
+                  <option value="ultah">Ulang Tahun</option>
+                  <option value="gathering">Gathering</option>
+                  <option value="lainnya">Lainnya...</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="tanggal">Tanggal</label>
+              <input
+                type="date"
+                class="form-control"
+                id="tanggal"
+                name="tanggal"
+              />
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="tempat">Tempat</label>
+              <input
+                type="text"
+                class="form-control"
+                id="tempat"
+                name="tempat"
+                placeholder="Masukkan tempat acara"
+              />
+            </div>
+
+            <button onclick="kirim()" class="btn btn-primary mt-3">
+              Pesan
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
       function kirim() {
         const nama = document.getElementById("nama").value;
-        console.log(nama)
-        const acara = document.querySelector('input[name="acara"]:checked').value;
-        console.log(acara)        
+        console.log(nama);
+        const acara = document.getElementById("acara").value;
+        console.log(acara);
         const tanggal = document.getElementById("tanggal").value;
-        console.log(tanggal)
+        console.log(tanggal);
         const tempat = document.getElementById("tempat").value;
-        console.log(tempat)
-    
-        window.open(`https://wa.me/6285246362203?text=Hallo%20Kak%20Perkenalkan%20saya%20${nama}%0aAcara%20:%20${acara}%0aTanggal%20:%20${tanggal}%0aTempat%20:%20${tempat}`, "_blank");
-        
+        console.log(tempat);
+
+        window.open(
+          `https://wa.me/6285246362203?text=Hallo%20Kak%20Perkenalkan%20saya%20${nama}%0aAcara%20:%20${acara}%0aTanggal%20:%20${tanggal}%0aTempat%20:%20${tempat}`,
+          "_blank"
+        );
       }
     </script>
   </body>
